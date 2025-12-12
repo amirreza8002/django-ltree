@@ -44,6 +44,7 @@ include = ["django_ltree", "django_ltree.migrations"]
 
 [project.optional-dependencies]
 develop = [
+    "django-cmd"
     "pytest",
     "pytest-django",
     "pytest-cov",
@@ -52,3 +53,6 @@ develop = [
     "tox",
     "ruff"
 ]
+
+[tool.django]
+settings_module = "tests.conf.settings"

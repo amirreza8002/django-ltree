@@ -10,3 +10,11 @@ class Taxonomy(TreeModel):
 
     def __str__(self):
         return "{}: {}".format(self.path, self.name)
+
+
+class Test(models.Model):
+    abc = models.CharField()
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        type(self).objects.filter(id=self.id).update(abc=f"somthing-{self.id}")
